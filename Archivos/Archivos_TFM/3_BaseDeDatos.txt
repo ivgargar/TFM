@@ -1,0 +1,18 @@
+CREATE KEYSPACE datos WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'} AND durable_writes = true;
+
+
+CREATE TABLE datos.sensors (
+  devicename ascii,
+  serverid ascii,
+  fecha timestamp,
+  id int,
+  value double,
+  PRIMARY KEY (devicename, serverid, fecha, id)
+)
+
+CREATE TABLE datos.location (
+  fecha timestamp,
+  devicename ascii,
+  position ascii,
+  PRIMARY KEY (fecha, devicename)
+)
