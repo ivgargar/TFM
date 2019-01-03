@@ -22,7 +22,7 @@ public class RandomLoadSensor extends BaseInstanceEnabler {
     private static final int RESET_MIN_MAX_MEASURED_VALUES = 5605;
     private final ScheduledExecutorService scheduler;
     private final Random rng = new Random();
-    private double currentLoad = 0.050d;
+    private double currentLoad = 0.040d;
     private double minMeasuredValue = currentLoad;
     private double maxMeasuredValue = currentLoad;
 
@@ -70,7 +70,7 @@ public class RandomLoadSensor extends BaseInstanceEnabler {
     }
 
     private synchronized void adjustLoad() {
-        double delta = rng.nextDouble()*0.00000154d;
+        double delta = rng.nextDouble()*0.040d;
         currentLoad += delta;
         Integer changedResource = adjustMinMaxMeasuredValue(currentLoad);
         if (changedResource != null) {
