@@ -14,7 +14,7 @@ import org.eclipse.leshan.util.NamedThreadFactory;
 
 public class RandomLoadSensor extends BaseInstanceEnabler {
 
-    private static final String UNIT_CELSIUS = "kg";
+    private static final String UNIT_KG = "kg";
     private static final int SENSOR_VALUE = 5700;
     private static final int UNITS = 5701;
     private static final int MAX_MEASURED_VALUE = 5602;
@@ -47,7 +47,7 @@ public class RandomLoadSensor extends BaseInstanceEnabler {
         case SENSOR_VALUE:
             return ReadResponse.success(resourceId, getTwoDigitValue(currentLoad));
         case UNITS:
-            return ReadResponse.success(resourceId, UNIT_CELSIUS);
+            return ReadResponse.success(resourceId, UNIT_KG);
         default:
             return super.read(resourceId);
         }
